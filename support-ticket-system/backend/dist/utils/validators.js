@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.statusSchema = exports.assignSchema = exports.idSchema = exports.updateTicketSchema = exports.createTicketSchema = void 0;
+const zod_1 = require("zod");
+const ticket_js_1 = require("../types/ticket.js");
+const id = zod_1.z.coerce.number().int().positive();
+const ticketBody = zod_1.z.object({ customerName: zod_1.z.string().trim().min(1), customerEmail: zod_1.z.string().email(), subject: zod_1.z.string().trim().min(1), description: zod_1.z.string().trim().min(10), priority: zod_1.z.enum(ticket_js_1.priorities), category: zod_1.z.enum(ticket_js_1.categories) });
+exports.createTicketSchema = zod_1.z.object({ body: ticketBody, params: zod_1.z.object({}), query: zod_1.z.object({}) });
+exports.updateTicketSchema = zod_1.z.object({ body: ticketBody.partial().extend({ status: zod_1.z.enum(ticket_js_1.statuses).optional(), agentId: id.nullable().optional() }), params: zod_1.z.object({ id }), query: zod_1.z.object({}) });
+exports.idSchema = zod_1.z.object({ body: zod_1.z.unknown(), params: zod_1.z.object({ id }), query: zod_1.z.unknown() });
+exports.assignSchema = zod_1.z.object({ body: zod_1.z.object({ agentId: id }), params: zod_1.z.object({ id }), query: zod_1.z.object({}) });
+exports.statusSchema = zod_1.z.object({ body: zod_1.z.object({ status: zod_1.z.enum(ticket_js_1.statuses) }), params: zod_1.z.object({ id }), query: zod_1.z.object({}) });

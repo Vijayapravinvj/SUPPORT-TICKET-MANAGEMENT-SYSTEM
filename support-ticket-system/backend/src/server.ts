@@ -1,0 +1,2 @@
+import express from 'express';import cors from 'cors';import 'dotenv/config';import { router } from './routes/index.js';import { errorHandler } from './middleware/errorHandler.js';
+const app=express();app.use(cors({origin:process.env.FRONTEND_URL??'http://localhost:3000'}));app.use(express.json());app.get('/health',(_q,r)=>r.json({ok:true}));app.use('/api',router);app.use(errorHandler);const port=Number(process.env.PORT??4000);app.listen(port,()=>console.log(`API running on http://localhost:${port}`));

@@ -1,0 +1,1 @@
+import './globals.css';import { Nav } from '@/components/Nav'; export const metadata={title:'Support Ticket Management',description:'Support ticket management system'};export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body><Nav/><main className="mx-auto max-w-7xl p-4 md:p-8">{children}</main></body></html>}

@@ -1,0 +1,1 @@
+'use client'; export default function ErrorPage({error,reset}:{error:Error;reset:()=>void}){return <div className="card p-8"><h2 className="text-xl font-bold">Something went wrong</h2><p className="my-3 text-slate-600">{error.message}</p><button className="btn btn-primary" onClick={reset}>Retry</button></div>}

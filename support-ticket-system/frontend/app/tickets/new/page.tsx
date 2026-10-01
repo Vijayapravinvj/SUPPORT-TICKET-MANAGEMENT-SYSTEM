@@ -1,0 +1,1 @@
+import { TicketForm } from '@/components/TicketForm';export default function Page(){return <><h1 className="text-3xl font-black">Create Ticket</h1><p className="mb-6 text-slate-500">Enter customer and issue details.</p><TicketForm/></>}
