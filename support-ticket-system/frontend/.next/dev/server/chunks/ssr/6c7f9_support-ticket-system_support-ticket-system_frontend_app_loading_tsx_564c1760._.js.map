@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/vijay/Downloads/support-ticket-system/support-ticket-system/frontend/app/loading.tsx"],"sourcesContent":["export default function Loading(){return <div className=\"card p-8 text-center\">Loading…</div>}\n"],"names":[],"mappings":";;;;;;AAAe,SAAS;IAAU,qBAAO,qUAAC;QAAI,WAAU;kBAAuB;;;;;;AAAc","debugId":null}}]
-}
